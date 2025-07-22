@@ -45,14 +45,14 @@ const char *HEARING_FOLDER = "/hearing";
 #define SILENCE_DURATION 3000
 #define LED_PIN 2
 
-const char *ssid = "iPhone 6s";
-const char *password = "hihiha123";
-const char *serverUrl = "http://172.20.10.2:5000/process_input";
-const char *wakeWordUrl = "http://172.20.10.2:5000/detect_wakeword";
-const char *streamURL = "http://172.20.10.2:5000/audio_response";
+const char *ssid = "ssid";
+const char *password = "pass";
+const char *serverUrl = "your_server_url/process_input";
+const char *wakeWordUrl = "your_server_url/detect_wakeword";
+const char *streamURL = "your_server_url/audio_response";
 
-char *MQTT_SERVER = "broker.emqx.io";
-int MQTT_PORT = 1883;
+char *MQTT_SERVER = "broker.emqx.io"; // can change it depends on your server
+int MQTT_PORT = 1883; // can change it depends on your port
 
 enum State {
   IDLE,
@@ -139,7 +139,7 @@ void doPublish(String topic, String payload) {
 }
 
 void doSubscribe() {
-  mqttClient.subscribe("testtopic/mwtt");
+  mqttClient.subscribe("your/subscription");
 }
 
 void loadAudioFiles(const char *folder, String *fileArray, int &fileCount) {
